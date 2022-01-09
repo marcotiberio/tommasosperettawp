@@ -1,42 +1,39 @@
 [is='flynt-accordion-default'] {
+  padding: 0 0.5%;
+
   .accordion {
     @include reset-list;
   }
 
-  .panel {
-    padding-bottom: 15px;
+  .grid-header {
+    column-gap: $container-padding-desktop;
+    display: grid;
+    grid-template-columns: 0.3fr 1fr 2.5fr 2fr 0.5fr;
+    padding-bottom: 1px;
 
-    &:last-child {
-      padding-bottom: 0;
+    div {
+      &:last-child {
+        text-align: right;
+      }
     }
+  }
 
+  .panel {
     &-trigger {
+      border-top: 1px solid $black;
+      column-gap: $container-padding-desktop;
       cursor: pointer;
+      display: grid;
+      grid-template-columns: 0.3fr 1fr 2.5fr 2fr 0.5fr;
       margin: 0;
-      padding: 15px 30px 15px 0;
+      padding-bottom: 10px;
+      padding-top: 5px;
       position: relative;
       width: 100%;
 
-      &::after {
-        $color-text-rgb: red($color-contrast), green($color-contrast), blue($color-contrast);
-
-        background-image: url("data:image/svg+xml;charset=utf8,%3Csvg width='32' height='32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpolyline fill='none' stroke='rgb(#{$color-text-rgb})' stroke-width='2' points='2,9 16,25 30,9 '/%3E%3C/svg%3E");
-        background-position: center;
-        background-repeat: no-repeat;
-        background-size: 100%;
-        content: '';
-        display: block;
-        height: 100%;
-        position: absolute;
-        right: 0;
-        top: 0;
-        transition: transform 0.2s cubic-bezier(0.165, 0.84, 0.44, 1);
-        width: 30px;
-      }
-
-      &[aria-expanded='true'] {
-        &::after {
-          transform: rotateX(180deg);
+      div {
+        &:last-child {
+          text-align: right;
         }
       }
     }
@@ -50,7 +47,16 @@
 
     // add custom paddings here
     &-inner {
+      column-gap: $container-padding-desktop;
+      display: grid;
+      grid-template-columns: 0.3fr 1fr 2.5fr 2fr 0.5fr;
       padding: 0;
+
+      div {
+        &:last-child {
+          text-align: right;
+        }
+      }
     }
   }
 }
